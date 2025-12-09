@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100dvw;
   overflow-x: hidden;
@@ -357,7 +361,6 @@ body {
 
   .crypto-title {
     font-family: 'Zentry', sans-serif;
-    animation: cryptoGlow 3s ease-in-out infinite;
     border-right: 2px solid #3b82f6;
     overflow: hidden;
     white-space: nowrap;

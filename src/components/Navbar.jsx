@@ -58,7 +58,8 @@ const NavBar = () => {
     gsap.to(navContainerRef.current, {
       y: isNavVisible ? 0 : -100,
       opacity: isNavVisible ? 1 : 0,
-      duration: 0.2,
+      duration: 0.3,
+      ease: "power2.inOut",
     });
   }, [isNavVisible]);
 
@@ -71,7 +72,7 @@ const NavBar = () => {
         <nav className="flex size-full items-center justify-between p-4">
           {/* Logo and Product button */}
           <div className="flex items-center gap-7">
-            <img src="/img/logo.png" alt="logo" className="w-10" />
+            <img src="/img/logo.png" alt="logo" className="w-10" loading="lazy" decoding="async" fetchpriority="low" />
 
             <Button
               id="product-button"
@@ -87,8 +88,14 @@ const NavBar = () => {
               {navItems.map((item, index) => (
                 <a
                   key={index}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn"
+                  href={`#${item === "Home" ? "hero" : item.toLowerCase().replace(" ", "-")}`}
+                  className="nav-hover-btn scroll-smooth"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetId = item === "Home" ? "video-frame" : item.toLowerCase().replace(" ", "-");
+                    const element = document.getElementById(targetId);
+                    element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
                 >
                   {item}
                 </a>

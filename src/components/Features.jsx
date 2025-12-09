@@ -66,6 +66,9 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
         loop
         muted
         autoPlay
+        playsInline
+        preload="metadata"
+        poster="/img/logo.png"
         className="absolute left-0 top-0 size-full object-cover object-center"
       />
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50">
@@ -93,7 +96,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
               }}
             />
             <TiLocationArrow className="relative z-20" />
-            <p className="relative z-20">coming soon</p>
+            <p className="relative z-20 text-white/90">coming soon</p>
           </div>
         )}
       </div>
@@ -183,6 +186,9 @@ const Features = () => (
             loop
             muted
             autoPlay
+            playsInline
+            preload="metadata"
+            poster="/img/logo.png"
             className="size-full object-cover object-center"
           />
         </BentoTilt>
